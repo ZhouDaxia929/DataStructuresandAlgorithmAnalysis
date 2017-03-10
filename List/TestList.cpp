@@ -4,7 +4,7 @@
 #include <cstdlib>
 #include <cstdio>
 #include "List.h"
-int main(){
+void ListTest(){
     List L, L1;
     Position P, P1;
     L = MakeEmpty(NULL);
@@ -56,5 +56,4 @@ int main(){
     DeleteList(L);
     DeleteList(L1);
 
-    return 0;
 }

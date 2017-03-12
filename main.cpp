@@ -5,9 +5,11 @@
 #include "List/TestList.h"
 #include "List_Sort/BucketSortByArray.h"
 #include "List_Sort/BucketSortByArrAndCpp.h"
+#include "Stack/StackByLink.h"
 
 int main(){
     //ListTest();
-    testBucketSort();
-    testBucketSortCpp();
+    //testBucketSort();
+    //testBucketSortCpp();
+    TestStackByLink();
 }

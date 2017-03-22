@@ -3,6 +3,8 @@
 //
 
 #include "Array.h"
+#include <iostream>
+using namespace std;
 
 template <class T>
 class Array{
@@ -47,3 +49,58 @@ Array<T>::Array(Array<T> const& array) :
         data[i] = array.data[i];
 }
 
+//析构函数的定义
+template <class T>
+Array<T>::~Array() {
+    delete [] data;
+}
+
+//类存取器函数
+template <class T>
+T const* Array<T>::Data() const {
+    return data;
+}
+
+template <class T>
+unsigned int Array<T>::Base() const {
+    return base;
+}
+
+template <class T>
+unsigned int Array<T>::Length() const {
+    return length;
+}
+
+//Array<T>类下标操作函数定义
+template <class T> //对const常数型数组对象进行操作，返回一个对T类型对象的const型引用
+T const& Array<T>::operator[](unsigned int position) const {
+    unsigned int const offset = position - base;
+    if(offset >= length)
+        cout << "invalid position" << endl;
+    return data[offset];
+}
+
+template <class T> //对非const型对象进行操作
+T& Array<T>::operator[](unsigned int position) {
+    unsigned int const offset = position - base;
+    if(offset >= length)
+        cout << "invalid position" << endl;
+    return data[offset];
+}
+
+//set函数的定义
+template <class T>
+void Array<T>::SetBase(unsigned int newBase) {
+    base = newBase;
+}
+
+template <class T>
+void Array<T>::SetLength(unsigned int newLength) {
+    T* const newData = new T[newLength];
+    unsigned int const min = length < newLength ? length : newLength;
+    for(unsigned int i = 0; i < min; i++)
+        newData[i] = data[i];
+    delete [] data;
+    data = newData;
+    length = newLength;
+}

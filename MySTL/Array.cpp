@@ -6,30 +6,7 @@
 #include <iostream>
 using namespace std;
 
-template <class T>
-class Array{
-protected:
-    T* data;
-    unsigned int base;
-    unsigned int length;
-public:
-    Array();
-    Array(unsigned int, unsigned int = 0);
-    ~Array();
 
-    Array(Array const&);
-    Array& operator = (Array const&);
-
-    T const& operator [] (unsigned int) const;
-    T& operator [] (unsigned int);
-
-    T const* Data () const;
-    unsigned int Base() const;
-    unsigned int Length() const;
-
-    void SetBase(unsigned int);
-    void SetLength(unsigned int);
-};
 
 //缺省构造函数
 template <class T>

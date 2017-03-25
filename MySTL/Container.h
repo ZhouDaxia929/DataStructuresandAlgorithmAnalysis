@@ -9,6 +9,7 @@
 #include "Object.h"
 #include "Visitor.h"
 #include "Iterator.h"
+#include "Ownership.h"
 
 //抽象基类，可派生出具体容器的实现
 class Container : public virtual Object, public virtual Ownership {

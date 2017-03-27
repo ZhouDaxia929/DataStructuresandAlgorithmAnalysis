@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.6)
+project(C__Test)
+
+set(CMAKE_CXX_STANDARD 11)
+
+set(SOURCE_FILES List/List.h List/List.cpp List/fatal.h List/TestList.cpp main.cpp List/TestList.h List_Polynomial/Polynomial.h List_Polynomial/Polynomial.cpp List_Sort/BucketSortByArray.cpp List_Sort/BucketSortByArray.h List_Sort/BucketSortByArrAndCpp.cpp List_Sort/BucketSortByArrAndCpp.h List_Sort/RadixSort.cpp Stack/StackByLink.h Stack/StackByLink.cpp Test/Test.cpp Test/Test.h MySTL/Array.cpp MySTL/Array.h MySTL/LinkedList.cpp MySTL/LinkedList.h MySTL/Array2D.cpp MySTL/Array2D.h MySTL/Matrix.cpp MySTL/Matrix.h MySTL/Object.cpp MySTL/Object.h MySTL/NullObject.cpp MySTL/NullObject.h MySTL/Wrapper.cpp MySTL/Wrapper.h MySTL/Container.cpp MySTL/Container.h MySTL/Visitor.cpp MySTL/Visitor.h MySTL/Iterator.cpp MySTL/Iterator.h MySTL/NullIterator.cpp MySTL/NullIterator.h MySTL/Ownership.cpp MySTL/Ownership.h MySTL/Association.cpp MySTL/Association.h MySTL/SearchableContainer.h MySTL/Stack.h MySTL/StackAsArray.cpp MySTL/StackAsArray.h MySTL/StackAsLinkedList.cpp MySTL/StackAsLinkedList.h MySTL/Queue.h MySTL/QueueAsArray.cpp MySTL/QueueAsArray.h MySTL/QueueAsLinkedList.cpp MySTL/QueueAsLinkedList.h MySTL/Deque.h MySTL/Deque.cpp MySTL/DequeAsArray.cpp MySTL/DequeAsArray.h MySTL/DequeAsLinkedList.h MySTL/DequeAsLinkedList.cpp)
+add_executable(C__Test ${SOURCE_FILES})

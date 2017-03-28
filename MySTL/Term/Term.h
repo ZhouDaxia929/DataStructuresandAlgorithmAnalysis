@@ -7,6 +7,8 @@
 
 
 #include "../Object.h"
+#include <iostream>
+using namespace std;
 
 class Term : public Object{
     double coefficient;
@@ -16,6 +18,10 @@ public:
     //...
     int CompareTo(Object const&) const;
     void Differentiate();
+
+    unsigned int Coefficient() const;
+    unsigned int Exponent() const;
+    friend Term operator + (Term const&, Term const&);
 };
 
 Term::Term(double _coefficient, unsigned int _exponent) : coefficient(_coefficient), exponent(_exponent) {}
@@ -37,5 +43,18 @@ void Term::Differentiate() {
         coefficient = 0;
 }
 
+unsigned int Term::Coefficient() const {
+    return coefficient;
+}
+
+unsigned int Term::Exponent() const {
+    return exponent;
+}
+
+Term operator + (Term const& arg1, Term const& arg2){
+    if(arg1.exponent != arg2.exponent)
+        cout << "unequal exponent" << endl;
+    return Term(arg1.coefficient + arg2.coefficient, arg1.exponent);
+}
 
 #endif //C_TEST_TERM_H

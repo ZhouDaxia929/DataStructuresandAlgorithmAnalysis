@@ -46,3 +46,21 @@ void Container::Put(ostream& s) const {
 Iterator& Container::NewIterator() const {
     return *new NullIterator();
 }
+
+class HashingVisitor : public Visitor{
+    unsigned int value;
+public:
+    HashingVisitor(unsigned int _value) : value(_value){}
+    void Visit(Object& object){
+        value += object.Hash();
+    }
+    unsigned int Value() const{
+        return value;
+    }
+};
+
+unsigned int Container::Hash() const {
+    HashingVisitor visitor(::Hash(typeid(*this).name()));
+    Accept(visitor);
+    return visitor.Value();
+}

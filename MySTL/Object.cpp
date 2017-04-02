@@ -2,6 +2,8 @@
 // Created by ggggg on 2017/3/23.
 //
 
+#include <cstdlib>
+#include <cmath>
 #include "Object.h"
 
 Object::~Object() {}
@@ -26,3 +28,23 @@ int Object::Compare(Object const& object) const {
     else
         return 1;
 }
+
+HashValue Object::Hash(char c) const {
+    return abs(c);
+}
+
+HashValue Object::Hash(int i) const {
+    return abs(i);
+}
+
+HashValue Object::Hash(double d) const {
+    if(d == 0)
+        return 0;
+    else{
+        int exponent;
+        double mantissa = std::frexp(d, &exponent);
+        return (2 *   (mantissa) - 1) * ~0U;
+    }
+}
+
+unsigned int const shift = 6;

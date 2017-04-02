@@ -33,6 +33,11 @@ void Wrapper<T>::Put(ostream& s) const {
     s << datum;
 }
 
+template <class T>
+HashValue Wrapper<T>::Hash() const {
+    return ::Hash(datum);
+}
+
 typedef Wrapper<int> Int;
 typedef Wrapper<char> Char;
 typedef Wrapper<double> Double;
